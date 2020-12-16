@@ -12,7 +12,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: YOUR_DOCKER_HUB/simple-reverse-proxy
+      - image: ctala/reverse-proxy
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
