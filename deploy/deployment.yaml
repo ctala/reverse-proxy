@@ -1,29 +1,24 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: reverseproxy
-  name: reverseproxy
+    service: reverse-proxy
+  name: reverse-proxy
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: reverse-proxy
   template:
     metadata:
       labels:
-        service: reverseproxy
+        app: reverse-proxy
+        service: reverse-proxy
     spec:
       containers:
       - image: ctala/reverse-proxy
-        name: reverseproxy
-        imagePullPolicy: Always          
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "1024Mi"
-            cpu: "500m"       
+        name: reverse-proxy
+        imagePullPolicy: Always           
         ports:
-        - containerPort: 8080
+        - containerPort: 8090
       restartPolicy: Always
-
-
