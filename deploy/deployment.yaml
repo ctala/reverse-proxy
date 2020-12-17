@@ -20,5 +20,5 @@ spec:
         name: reverse-proxy
         imagePullPolicy: Always           
         ports:
-        - containerPort: 8090
+        - containerPort: 8080
       restartPolicy: Always
